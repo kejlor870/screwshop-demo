@@ -1,4 +1,3 @@
-
 *{
     box-sizing: border-box;
     font-family: "DM Serif Text", serif;
@@ -169,6 +168,37 @@ main{
 #photoGallery{
     background-color: red;
     flex: 1 1 60%;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    
+}
+
+#photoGallery > img{
+    height: 300px;
+    flex: 1 1 60%;
+    background-color: gray;
+}
+
+#photoGallery aside{
+    background-color: white;
+    height: 100%;
+    flex: 1 1 30%;
+
+    display: flex;
+    /* zamiast flex mozna uzyc grid - chyba lepiej wyjdzie */
+    /* ale da sie to zrobic flexem i chyba przy tym zostane */
+    /* trzeba uzyc flex-wrap i max-width */
+    /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+}
+
+#photoGallery img{
+    width: 100%;
+    height: 100px;
+    display: inline-block;
+    background-color: #f0f0f0;
+    border: 1px dashed #999;
 
 }
 
@@ -276,6 +306,36 @@ footer{
     }
 
     #cartDisplay{
+        width: 100%;
+
+    }
+
+            /* PRODUCT DISPLAY */
+    #productDisplay{
+        width: 100%;
+        flex-direction: column;
+
+    }
+
+    /* Left side with photos and description */
+    #photosAndDescription{
+        width: 100%;
+
+    }
+
+    #photoGallery{
+        width: 100%;
+
+    }
+
+    #description{
+        width: 100%;
+
+    }
+
+    /* Right side with suppy and add to cart btn */
+    #addToCartSection{
+        background-color: darkolivegreen;
         width: 100%;
 
     }
