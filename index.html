@@ -72,35 +72,46 @@
             <section id="photosAndDescription">
                 <div id="photoGallery">
                     <!-- TODO: picture gallery with main image changes on hover -->
-                    <!-- something like that:
-                        [      ] [ ][ ] 
-                        [      ] [ ][ ]
-
-                        main big | smaller ones 
-                        img      |
-                    -->
-
-                    <img src="" alt="Główne zdjęcie produktu">
+                    <!--  ^^^ functionality in JavaScript -->
+                    
+                    <img src="images/products/sizesNoBG.png" alt="Główne zdjęcie produktu" id="mainImage">
 
                     <aside>
-                        <img src="" alt="inne zdjecie produktu">
-                        <img src="" alt="inne zdjecie produktu">
-                        <img src="" alt="inne zdjecie produktu">
-                        <img src="" alt="inne zdjecie produktu">
+                        <img src="images/products/nakrecona.png" alt="inne zdjecie produktu">
+                        <img src="images/products/many.png" alt="inne zdjecie produktu">
+                        <img src="images//products/stack.png" alt="inne zdjecie produktu">
+                        <img src="images/products/nakrecona.png" alt="inne zdjecie produktu">
                     </aside>
 
                 </div>
                 <div id="description">
-                    <!-- TODO: description of product -->
-
+                    <!-- <h2> Śrubka sześciokątna </h2> -- here or in addToCartSection -->
+                    <span id="descriptionText">
+                        <!-- Technical description -->
+                        <!-- certificats and norms (ISO, DIN) -->
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ducimus provident quo fuga in obcaecati, omnis voluptas! Error, nobis? Dolore recusandae vitae nam ea, animi porro nulla libero in dicta?
+                        Ad laborum maxime est exercitationem perferendis cum harum vel, atque porro corporis nisi dolorem ipsa, ratione reprehenderit explicabo eum! Autem pariatur provident natus aspernatur, esse laboriosam illo. Delectus, libero officiis?
+                        Ipsa dicta facilis magni consectetur. Error, aspernatur est et voluptas ut explicabo dolor nostrum! Autem animi nobis temporibus vel sapiente nostrum quidem rem ipsam est ea? Dignissimos officia rem in?
+                    </span>
 
                 </div>
             </section>
 
             <!-- Right side with suppy and add to cart btn -->
             <section id="addToCartSection">
-                <!-- TODO: image of cart that we can drag to right side cart -->
-
+                <!-- Add to cart section -->
+                <h2> Śrubka sześciokątna </h2>
+                <h3> 2 zł/szt. </h3>
+                <div id="storehouseStatus"> 
+                    Status magazynowy: 
+                    <span id="storehouseAmount"> 1200 / 2000 </span>
+                </div>
+                
+                <!-- TODO: 
+                            image of cart that we can drag to right side cart -->
+                <!--        amount how many add to cart (input) -->
+                <!--        information: contact for individual price when
+                                        ordering more than 2000 -->
 
             </section>
         </section>
