@@ -1,4 +1,3 @@
-
 *{
     box-sizing: border-box;
     font-family: "DM Serif Text", serif;
@@ -6,6 +5,10 @@
     font-style: normal;
     font-size: 1rem;
 
+}
+
+h2{
+    font-size: 2rem;
 }
 
             /* HEADER */
@@ -139,7 +142,7 @@ nav > ul > li:hover > ul {
 main{
     background-color: #ECF0F1;
     padding: 1rem;
-    min-height: 600px; /* do usuniecia */
+    /* min-height: 1000px; do usuniecia (1000px) */
     display: flex;
     flex-wrap: wrap;
 
@@ -158,7 +161,7 @@ main{
 
 /* Left side with photos and description */
 #photosAndDescription{
-    background-color: rgba(189, 0, 189, 0.445);
+    /* background-color: rgba(189, 0, 189, 0.445); */
     flex: 1 1 70%;
     display: flex;
     flex-direction: column;
@@ -166,22 +169,93 @@ main{
 
 }
 
+/* Div with images */
 #photoGallery{
-    background-color: red;
+    /* background-color: red; */
     flex: 1 1 60%;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    
+}
+
+/* Main big image */
+#photoGallery > img{
+    width: 60%;
+    height: auto;
+    flex: 1 1 60%;
+    background-color: gray;
+    flex: 1;
+
+} 
+
+/* Aside with smaller images */
+#photoGallery aside{
+    /* background-color: rgb(192, 114, 114); */
+    /* height: 100%;  ---------*/
+    flex: 1 3 30%;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 1rem;
 
 }
 
+/* Thumbnail images */
+#photoGallery aside img{
+    flex: auto;
+    width: 40%;
+    height: 150px;
+    display: inline-block;
+    background-color: #f0f0f0;
+    border: 1px dashed #999;
+
+} 
+
+
+        /* Description */
 #description{
-    background-color: #F39C12;
+    /* background-color: #F39C12; */
     flex: 1 1 30%;
+    padding: 1rem 2rem 2rem 2rem;
 
 }
+
+
 
 /* Right side with suppy and add to cart btn */
 #addToCartSection{
     background-color: darkolivegreen;
     flex: 1 1 30%;
+    padding: 0 1rem 1rem 1rem;
+
+}
+
+#addToCartSection h2{
+    text-align: center;
+    margin-bottom: 0;
+}
+#addToCartSection h3{
+    margin-top: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+#storehouseStatus{
+    border: 2px dotted rgb(83, 83, 83);
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+#storehouseAmount{
+    font-weight: bold;
 
 }
 
@@ -276,6 +350,83 @@ footer{
     }
 
     #cartDisplay{
+        width: 100%;
+
+    }
+
+            /* PRODUCT DISPLAY */
+    #productDisplay{
+        width: 100%;
+        flex-direction: column;
+
+    }
+
+    /* Left side with photos and description */
+    #photosAndDescription{
+        width: 100%;
+
+    }
+
+    #photoGallery{
+        width: 100%;
+        flex-direction: column;
+        gap: 0.1rem;
+
+    }
+        #photoGallery > img{
+            /* height: 300px;  -----------*/ 
+            /* flex: 2 2 40%;
+            background-color: gray;
+            margin: 1rem;
+
+            min-width: 300px;
+            height: auto; */
+            
+            min-height: 300px;
+            min-width: 300px;
+
+        }
+
+
+        #photoGallery aside{
+            /* background-color: rgb(192, 114, 114);
+            height: 100%;
+            flex: 1 1 30%;
+
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center; */
+            width: 90%;
+            min-height: 100px;
+            margin-top: 0.5rem;
+
+        }
+
+        /* ChatGPT */
+        #photoGallery aside img{
+            /* flex: auto;
+            width: 40%;
+            height: 200px;
+            display: inline-block;
+            background-color: #f0f0f0;
+            border: 1px dashed #999; */
+
+            width: 20%;
+            height: 100px;
+            /* max-height: 100px; */
+
+        } 
+
+
+
+    #description{
+        width: 100%;
+
+    }
+
+    /* Right side with suppy and add to cart btn */
+    #addToCartSection{
+        background-color: darkolivegreen;
         width: 100%;
 
     }
