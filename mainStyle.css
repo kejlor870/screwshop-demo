@@ -150,7 +150,7 @@ main{
 
             /* PRODUCT SECTION */
 #productDisplay{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* width: 80%; */
     flex: 1 1 80%;
     padding: 10px;
@@ -225,11 +225,15 @@ main{
 
 
 
-/* Right side with suppy and add to cart btn */
+        /* Right side with suppy and add to cart btn */
 #addToCartSection{
-    background-color: darkolivegreen;
+    /* background-color: darkolivegreen; */
+    /* border-left: 1px solid black; */
+    border-right: 1px dashed black;
     flex: 1 1 30%;
     padding: 0 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -259,10 +263,58 @@ main{
 
 }
 
+/* Image that user is going to drop into cart */
+#addToCartSection img{
+    display: block;
+    /* background-color: red; */
+    width: 60%;
+    margin: 2rem auto 0 auto;
+    border-bottom: 3px dotted burlywood;
+
+}
+
+#quantitySection{
+    margin-top: 3rem;
+    border: 2px dotted rgb(83, 83, 83);
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+#addToCartSection i{
+    display: inline-block;
+    /* background-color: yellow; */
+    padding-top: 0.15rem;
+    margin: 0 1rem 0 0.5rem;
+
+}
+
+#quantityInput{
+    /* width: 80%; */
+    flex: 1 1 80%;
+
+}
+
+/* Information to contact when ordering more than 2000 */
+#informSpecialOrder{
+    /* background-color: yellow; */
+    display: block;
+    margin-top: auto;
+    padding: 10px;
+    text-align: center;
+    backdrop-filter: invert(70%) opacity(20%);
+    border-radius: 0.2rem;
+
+}
+
+
 
             /* CART SECTION */
 #cartDisplay{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 10px;
     /* width: 20%; */
     flex: 1 1 20%;
@@ -426,10 +478,29 @@ footer{
 
     /* Right side with suppy and add to cart btn */
     #addToCartSection{
-        background-color: darkolivegreen;
         width: 100%;
 
     }
 
+    #quantitySection{
+        margin-bottom: 2rem;
+        margin-top: 2rem;
 
+    }
+
+    #addToCartSection img{
+        width: 50%;
+
+
+    }
+
+
+}
+
+@media (max-width: 975px) {
+    #addToCartSection {
+        border-right: none;
+
+    }
+    
 }

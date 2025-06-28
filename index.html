@@ -25,20 +25,8 @@
     <header>
         Sklep internetowy
     </header>
+    <!-- Navigation MENU -->
     <nav>
-        <!-- <section id="f">
-            Strona główna
-        </section>
-        <section id="s">
-            Śrubki
-        </section>
-        <section id="s2">
-            Nakrętki
-        </section>
-        <section id="s3">
-            Kontakt
-        </section> -->
-
         <ul>
             <li><a href="#"> Strona główna </a></li>
             <li><a href="#"> Śrubki </a>
@@ -85,13 +73,13 @@
 
                 </div>
                 <div id="description">
-                    <!-- <h2> Śrubka sześciokątna </h2> -- here or in addToCartSection -->
+                    <!-- Technical description -->
                     <span id="descriptionText">
-                        <!-- Technical description -->
                         <!-- certificats and norms (ISO, DIN) -->
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ducimus provident quo fuga in obcaecati, omnis voluptas! Error, nobis? Dolore recusandae vitae nam ea, animi porro nulla libero in dicta?
                         Ad laborum maxime est exercitationem perferendis cum harum vel, atque porro corporis nisi dolorem ipsa, ratione reprehenderit explicabo eum! Autem pariatur provident natus aspernatur, esse laboriosam illo. Delectus, libero officiis?
                         Ipsa dicta facilis magni consectetur. Error, aspernatur est et voluptas ut explicabo dolor nostrum! Autem animi nobis temporibus vel sapiente nostrum quidem rem ipsam est ea? Dignissimos officia rem in?
+                        
                     </span>
 
                 </div>
@@ -106,12 +94,46 @@
                     Status magazynowy: 
                     <span id="storehouseAmount"> 1200 / 2000 </span>
                 </div>
-                
+                <!-- Image that we can drag to right side cart -->
+                <img src="images/packedArrowRight.PNG" alt="Paczka z produktem" title="Przeciągnij paczke do koszyka">
+
+                <!-- Changing arrow when screen size is 768px -->
+                <script>
+                    // function changing src
+                    function ChangeCartboardImage(width){
+                        if(width <= 975){
+                            document.querySelector('#addToCartSection img').src = "images/packedArrowDown.PNG";
+                        }else{
+                            document.querySelector('#addToCartSection img').src = "images/packedArrowRight.PNG";
+                        }
+
+                    }
+
+                    // When window load
+                    window.onload = () => {
+                        const width = window.innerWidth;
+                        ChangeCartboardImage(width)
+
+                    }
+
+                    // When window is resizing
+                    window.addEventListener('resize', ()=>{
+                        const width = window.innerWidth;
+                        ChangeCartboardImage(width)
+
+                    });
+
+                </script>
+
+                <div id="quantitySection">
+                    <i>Ilość:</i>
+                    <input type="number" name="quantity" id="quantityInput" min="1" max="2000" placeholder="Podaj ilość szt.">
+                </div>
+
+                <span id="informSpecialOrder"> Skontaktuj się w celu ustalenia indywidualnej ceny przy zamówieniu powyżej 2000 szt! </span>
                 <!-- TODO: 
-                            image of cart that we can drag to right side cart -->
-                <!--        amount how many add to cart (input) -->
-                <!--        information: contact for individual price when
-                                        ordering more than 2000 -->
+                        [functionality]
+                            image of cardboard that we can drag to right side cart  -->
 
             </section>
         </section>
