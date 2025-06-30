@@ -18,8 +18,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Preload font -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/dmseriftext/v15/rP2Hp2yn6lkG60EvP9n9H-esZW2xOQ-xsNqO47m55DA.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- <link rel="preload" href="https://fonts.gstatic.com/s/dmseriftext/v15/rP2Hp2yn6lkG60EvP9n9H-esZW2xOQ-xsNqO47m55DA.woff2" as="font" type="font/woff2" crossorigin> -->
 
+    <!-- JavaScript -->
+    <script src="scripts.js" defer></script>
 </head>
 <body>
     <header>
@@ -59,16 +61,15 @@
             <!-- Left side with photos and description -->
             <section id="photosAndDescription">
                 <div id="photoGallery">
-                    <!-- TODO: picture gallery with main image changes on hover -->
-                    <!--  ^^^ functionality in JavaScript -->
-                    
+                    <!-- Main image -->
                     <img src="images/products/sizesNoBG.png" alt="Główne zdjęcie produktu" id="mainImage">
 
+                    <!-- Thumbnails -->
                     <aside>
-                        <img src="images/products/nakrecona.png" alt="inne zdjecie produktu">
-                        <img src="images/products/many.png" alt="inne zdjecie produktu">
-                        <img src="images//products/stack.png" alt="inne zdjecie produktu">
-                        <img src="images/products/nakrecona.png" alt="inne zdjecie produktu">
+                        <img src="images/products/sizesNoBG.png" alt="inne zdjecie produktu" draggable="false">
+                        <img src="images/products/many.png" alt="inne zdjecie produktu" draggable="false">
+                        <img src="images/products/stack.png" alt="inne zdjecie produktu" draggable="false">
+                        <img src="images/products/nakrecona.png" alt="inne zdjecie produktu" draggable="false">
                     </aside>
 
                 </div>
@@ -88,66 +89,46 @@
             <!-- Right side with suppy and add to cart btn -->
             <section id="addToCartSection">
                 <!-- Add to cart section -->
-                <h2> Śrubka sześciokątna </h2>
-                <h3> 2 zł/szt. </h3>
+                <h2 id="productName"> Śrubka sześciokątna </h2>
+                <h3> <span id="productPrice">2</span> zł/szt. </h3>
                 <div id="storehouseStatus"> 
                     Status magazynowy: 
                     <span id="storehouseAmount"> 1200 / 2000 </span>
                 </div>
                 <!-- Image that we can drag to right side cart -->
-                <img src="images/packedArrowRight.PNG" alt="Paczka z produktem" title="Przeciągnij paczke do koszyka">
-
-                <!-- Changing arrow when screen size is 768px -->
-                <script>
-                    // function changing src
-                    function ChangeCartboardImage(width){
-                        if(width <= 975){
-                            document.querySelector('#addToCartSection img').src = "images/packedArrowDown.PNG";
-                        }else{
-                            document.querySelector('#addToCartSection img').src = "images/packedArrowRight.PNG";
-                        }
-
-                    }
-
-                    // When window load
-                    window.onload = () => {
-                        const width = window.innerWidth;
-                        ChangeCartboardImage(width)
-
-                    }
-
-                    // When window is resizing
-                    window.addEventListener('resize', ()=>{
-                        const width = window.innerWidth;
-                        ChangeCartboardImage(width)
-
-                    });
-
-                </script>
+                <img src="images/packedArrowRight.PNG" alt="Paczka z produktem" title="Przeciągnij paczke do koszyka" draggable="true" ondragstart="dragstart(event)">
 
                 <div id="quantitySection">
                     <i>Ilość:</i>
-                    <input type="number" name="quantity" id="quantityInput" min="1" max="2000" placeholder="Podaj ilość szt.">
+                    <input type="number" name="quantity" id="quantityInput" min="1" max="2000" step="1" placeholder="Podaj ilość szt." required>
                 </div>
 
+                <!-- Special information -->
                 <span id="informSpecialOrder"> Skontaktuj się w celu ustalenia indywidualnej ceny przy zamówieniu powyżej 2000 szt! </span>
-                <!-- TODO: 
-                        [functionality]
-                            image of cardboard that we can drag to right side cart  -->
 
             </section>
         </section>
         <section id="cartDisplay">
             <h1> Koszyk: </h1>
-            <div id="cartInfo">
-
+            <div id="cartInfo" ondragover="dragOvr(event)" ondrop="drop(event)" >
+                <!-- Added products displays here -->
+                <ol>
+                    <!-- 
+                    <li class="productInCart"><div> <b> Śrubka sześciokątna </b> x23 <span class="priceInCart"> 46 zł</span> </div></li>
+                    <li class="productInCart"><div> <b> Śrubka sześciokątna </b> x23 <span class="priceInCart"> 46 zł</span> </div></li>
+                    <li class="productInCart"><div> <b> Śrubka sześciokątna </b> x23 <span class="priceInCart"> 46 zł</span> </div></li>
+                     -->
+                </ol>
             </div>
+            <!-- TODO: 
+                    podsumowanie ceny wszytskich rzeczy w koszyku -->
             <button> Kup teraz </button>
         </section>
     </main>
     <footer>
         &copy; 2025 Sklep internetowy. Wszelkie prawa zastrzeżone.
     </footer>
-
+    
+</div>
 </body>
 </html>

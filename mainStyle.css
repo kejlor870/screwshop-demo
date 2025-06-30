@@ -212,7 +212,13 @@ main{
     background-color: #f0f0f0;
     border: 1px dashed #999;
 
-} 
+}
+
+#photoGallery aside img:hover{
+    cursor: pointer;
+
+}
+
 
 
         /* Description */
@@ -337,15 +343,29 @@ main{
     /* height: 100%; */
     flex: 1 1 50%;
     min-height: 200px;
+    max-height: 700px;
     border: 1px solid #D5D8DC;
     margin: 1rem 0;
-    background-image: url(images/cart-plus-svgrepo-com.svg);
+    background-image:
+    linear-gradient(rgba(236, 240, 241, 0.6), rgba(236, 240, 241, 0.6)),
+    url(images/cart-plus-svgrepo-com.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 10rem;
-    filter: opacity(0.6);
+
+    overflow-y: auto;
 
 }
+
+.productInCart div{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1.5rem;
+}
+
+.priceInCart{
+    margin-left: 1rem;
+} 
 
 #cartDisplay button{
     background-color: #F39C12;
