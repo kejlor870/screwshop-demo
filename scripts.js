@@ -69,6 +69,9 @@ function dragOvr(event){
 
 }
 
+// ------------
+// Functionality when cartboard is droped to shop cart section
+// ------------
 function drop(event){
     event.preventDefault();
 
