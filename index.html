@@ -96,7 +96,10 @@
                     <span id="storehouseAmount"> 1200 / 2000 </span>
                 </div>
                 <!-- Image that we can drag to right side cart -->
-                <img src="images/packedArrowRight.PNG" alt="Paczka z produktem" title="Przeciągnij paczke do koszyka" draggable="true" ondragstart="dragstart(event)">
+                <div id="containerForDragableImage">
+                    <img src="images/packedArrowRight.PNG" class="invisible-img" alt="" aria-hidden="true">
+                    <img src="images/packedArrowRight.PNG" class="floating-img" alt="Paczka z produktem" title="Przeciągnij paczke do koszyka" draggable="true" ondragstart="dragstart(event)">
+                </div>
 
                 <div id="quantitySection">
                     <i>Ilość:</i>

@@ -40,9 +40,11 @@ window.onload = function(){
 // Function changing src cardbord
 function ChangeCartboardImage(width){
     if(width <= 975){
-        document.querySelector('#addToCartSection img').src = "images/packedArrowDown.PNG";
+        document.querySelector('.floating-img').src = "images/packedArrowDown.PNG";
+
     }else{
-        document.querySelector('#addToCartSection img').src = "images/packedArrowRight.PNG";
+        document.querySelector('.floating-img').src = "images/packedArrowRight.PNG";
+
     }
 
 }
@@ -95,23 +97,106 @@ function drop(event){
 
 }
 
-// Get amount, price etc.
+// Get amount, price etc. 
 function getOrderInfo(){
     const productName = document.getElementById("productName").innerHTML;
     const quantity = parseInt(document.getElementById("quantityInput").value);
     const productPrice = parseInt(document.getElementById("productPrice").innerHTML);
 
     // validation of entered data
+    // if(quantity <= 0 || isNaN(quantity)){
+    //     alert("Podaj poprawna ilość sztuk! \nIlość powinna być większa od 0!");
+
+    //     return false;
+    // }else if(quantity >= 2000){
+    //     alert("Prosimy o kontakt przez zakladke Kontakt! \nZamówienie większe niz 2000 szt.");
+
+    //     return false;
+    // }
+    let validateInfo = validateOrderInfo(quantity);
+
+    if(validateInfo == true){ // information good -> return data to drop()
+        let totalPrice = productPrice * quantity;
+
+        return [productName, productPrice, quantity, totalPrice];
+    }else{
+        return false;
+    }
+
+    
+}
+
+// Validation of entered data as function
+function validateOrderInfo(quantity){
     if(quantity <= 0 || isNaN(quantity)){
         alert("Podaj poprawna ilość sztuk! \nIlość powinna być większa od 0!");
 
         return false;
+    }else if(quantity >= 2000){
+        alert("Prosimy o kontakt w zakładce ,,Kontakt'' przy zamówieniach powyzej 2000!");
+
+        return false;
+    }else{
+        return true;
     }
 
-    let totalPrice = productPrice * quantity;
-
-    return [productName, productPrice, quantity, totalPrice];
 }
 
+// TODO: moving packed on mobile devices (touch)...
+// ^^^ only done moving on mobile
 
-// TODO: przenoszenie obrazka na telefonach (touch)...
+const drag = document.querySelector(".floating-img");
+const dropZone = document.querySelector("#cartInfo");
+
+let offset = {x: 0, y: 0};
+
+drag.addEventListener('touchstart', function(e) {
+    const touch = e.touches[0];
+    offset.x = touch.clientX - drag.offsetLeft;
+    offset.y = touch.clientY - drag.offsetTop;
+
+});
+
+drag.addEventListener('touchmove', function(e) {
+    const touch = e.touches[0];
+    drag.style.left = (touch.clientX - offset.x) + 'px';
+    drag.style.top = (touch.clientY - offset.y) + 'px';
+
+    // console.log("Y: " + (touch.clientY - offset.y));
+
+    // preventing to move box upper than -200px from its start point
+    if((touch.clientY - offset.y) < (-200)){
+        drag.style.top = 0;
+    }
+
+    e.preventDefault(); 
+
+});
+
+drag.addEventListener('touchend', function(e) {
+    const dragRect = drag.getBoundingClientRect();
+    const dropRect = dropZone.getBoundingClientRect();
+
+    if (
+        dragRect.left < dropRect.right &&
+        dragRect.right > dropRect.left &&
+        dragRect.top < dropRect.bottom &&
+        dragRect.bottom > dropRect.top
+    ) {
+        dropZone.style.backgroundColor = 'lightgreen';
+        dropZone.textContent = 'Upuszczono!';
+
+        // Setting box to its start position after drop into cart
+        drag.style.left = "25%";
+        drag.style.top = 0;
+        
+    }
+});
+
+
+
+
+
+
+
+
