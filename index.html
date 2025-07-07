@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Preload font -->
-    <!-- <link rel="preload" href="https://fonts.gstatic.com/s/dmseriftext/v15/rP2Hp2yn6lkG60EvP9n9H-esZW2xOQ-xsNqO47m55DA.woff2" as="font" type="font/woff2" crossorigin> -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/dmseriftext/v15/rP2Hp2yn6lkG60EvP9n9H-esZW2xOQ-xsNqO47m55DA.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- JavaScript -->
     <script src="scripts.js" defer></script>
@@ -96,7 +96,10 @@
                     <span id="storehouseAmount"> 1200 / 2000 </span>
                 </div>
                 <!-- Image that we can drag to right side cart -->
-                <img src="images/packedArrowRight.PNG" alt="Paczka z produktem" title="Przeciągnij paczke do koszyka" draggable="true" ondragstart="dragstart(event)">
+                <div id="containerForDragableImage">
+                    <img src="images/packedArrowRight.PNG" class="invisible-img" alt="" aria-hidden="true">
+                    <img src="images/packedArrowRight.PNG" class="floating-img" alt="Paczka z produktem" title="Przeciągnij paczke do koszyka" draggable="true" ondragstart="dragstart(event)">
+                </div>
 
                 <div id="quantitySection">
                     <i>Ilość:</i>
