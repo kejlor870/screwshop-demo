@@ -233,7 +233,7 @@ main{
 
         /* Right side with suppy and add to cart btn */
 #addToCartSection{
-    background-color: darkolivegreen;
+    /* background-color: darkolivegreen; */
     /* border-left: 1px solid black; */
     border-right: 1px dashed black;
     flex: 1 1 30%;
@@ -244,12 +244,12 @@ main{
 }
 
 #addToCartSection h2{
-    background-color: #F39C12;
+    /* background-color: #F39C12; */
     text-align: center;
     margin-bottom: 0;
 }
 #addToCartSection h3{
-    background-color: #975d00;
+    /* background-color: #975d00; */
     margin-top: 0;
     padding: 0;
     text-align: center;
@@ -258,7 +258,7 @@ main{
 }
 
 #storehouseStatus{
-    background-color: #222F3A;
+    /* background-color: #222F3A; */
     border: 2px dotted rgb(83, 83, 83);
     padding: 0.5rem;
     display: flex;
@@ -275,7 +275,7 @@ main{
 /* Image that user is going to drop into cart */
 .floating-img{
     display: block;
-    background-color: red;
+    /* background-color: red; */
     width: 60%;
     margin: 2rem auto 0 auto;
     border-bottom: 3px dotted burlywood;
@@ -294,7 +294,7 @@ main{
 }
 
 #quantitySection{
-    background-color: greenyellow;
+    /* background-color: greenyellow; */
     margin-top: 3rem;
     border: 2px dotted rgb(83, 83, 83);
     padding: 0.5rem;
@@ -307,7 +307,7 @@ main{
 
 #addToCartSection i{
     display: inline-block;
-    background-color: yellow;
+    /* background-color: yellow; */
     padding-top: 0.15rem;
     margin: 0 1rem 0 0.5rem;
 
@@ -321,7 +321,7 @@ main{
 
 /* Information to contact when ordering more than 2000 */
 #informSpecialOrder{
-    background-color: yellow;
+    /* background-color: yellow; */
     display: block;
     margin-top: auto;
     padding: 10px;
@@ -438,6 +438,7 @@ footer{
 
     #cartDisplay{
         width: 100%;
+        min-height: 500px;
 
     }
 
@@ -529,7 +530,6 @@ footer{
         background-color: red;
         width: 60%;
         margin: 2rem auto 0 auto; */
-        background-color: darkmagenta;
         margin-top: 2rem;
         width: 100%;
         position: relative;
