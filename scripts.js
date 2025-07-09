@@ -120,12 +120,15 @@ function getOrderInfo(){
 
 // Validation of entered data as function
 function validateOrderInfo(quantity){
+    let info = "";
     if(quantity <= 0 || isNaN(quantity)){
-        alert("Podaj poprawna ilość sztuk! \nIlość powinna być większa od 0!");
+        info = "Niepoprawna ilość sztuk! <br>Ilość powinna być większa od 0!";
+        showAlertDivBox(info);
 
         return false;
     }else if(quantity >= 2000){
-        alert("Prosimy o kontakt w zakładce ,,Kontakt'' przy zamówieniach powyzej 2000!");
+        info = "Prosimy o kontakt w zakładce ,,Kontakt'' przy zamówieniach powyzej 2000!";
+        showAlertDivBox(info);
 
         return false;
     }else{
@@ -193,10 +196,7 @@ drag.addEventListener('touchend', function(e) {
         dragRect.top < dropRect.bottom &&
         dragRect.bottom > dropRect.top
     ) {
-        // Changing cardboard img to checked
-        document.querySelector(".floating-img").src = "images/packedChecked.png";
-        setTimeout(() => ChangeCartboardImage(), 1000);
-
+        
         // Setting box to its start position after drop into cart, delay for 0.5s
         setTimeout(() => setToStartPosition(), 1000);
         
@@ -204,6 +204,10 @@ drag.addEventListener('touchend', function(e) {
         if(getOrderInfo() == false){
             return 0;
         }else{
+            // Changing cardboard img to checked
+            document.querySelector(".floating-img").src = "images/packedChecked.png";
+            setTimeout(() => ChangeCartboardImage(), 1000);
+
             let orderInfo = getOrderInfo();
             addProductToCartList(orderInfo);
         }
@@ -223,8 +227,36 @@ function setToStartPosition(comebackSpeed = 400){
 }
 
 
-// TODO: zeby floating-img nie mogl wyjechac poza viewport
-//       jak odrzuca orderInfo zeby nie zmienialo obrazka na
-//       -zielony check tylko na czerwonego X
+// ----
+// Hint after click on floating-img
+// ----
+drag.addEventListener('click', function(e){
+    // Message that is going to show in alert div
+    const dragInfoMsg = "Aby dodać produkt do koszyka proszę przeciągnąć pudełko do koszyka i upuścić.";
+    
+    showAlertDivBox(dragInfoMsg);
 
+});
+
+// Show alert about floating-img/box
+function showAlertDivBox(infoDescription = "error"){
+    const alertDivbox = document.querySelector(".alertDiv");
+    // Change alert description
+    document.querySelector("#alertDescription").innerHTML = infoDescription;
+
+    alertDivbox.style.display = "block";
+
+}
+
+// Hide alert box 
+function hideAlertDivBox(){
+    const alertDivbox = document.querySelector(".alertDiv");
+    alertDivbox.style.display = "none";
+
+}
+
+
+// TODO: -zeby floating-img nie mogl wyjechac poza viewport
+//       -jesli box po przesunieciu nie znajdzie sie w ciagu kilu minut w 
+//          koszyku to wraca na swoje miejsce
 
