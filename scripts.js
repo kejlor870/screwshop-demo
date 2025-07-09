@@ -82,17 +82,6 @@ function drop(event){
     }else{
         let orderInfo = getOrderInfo(); // [productName, productPrice, quantity, totalPrice]
 
-        // let liHTML = '<li class="productInCart"><div> <b> '+orderInfo[0]+' </b> x'+orderInfo[2]+' <span class="priceInCart"> '+orderInfo[3]+' zł</span> </div></li>';
-
-        // let cart = document.querySelector("#cartInfo ol");
-
-        // let temp = document.createElement('div');
-        // temp.innerHTML = liHTML;
-
-        // let liElement = temp.firstElementChild;
-
-        // cart.appendChild(liElement);
-
         addProductToCartList(orderInfo);
     }
 
@@ -137,11 +126,13 @@ function validateOrderInfo(quantity){
 
 }
 
+            // TEMP variable!!!!! sumPrice
+let sumPrice = 0;
 // ------------
 // Adding prduct info to list in cart
 // ------------
 function addProductToCartList(orderInfo){
-
+    // orderInfo => [productName, productPrice, quantity, totalPrice]
     let liHTML = '<li class="productInCart"><div> <b> '+orderInfo[0]+' </b> x'+orderInfo[2]+' <span class="priceInCart"> '+orderInfo[3]+' zł</span> </div></li>';
 
     let cart = document.querySelector("#cartInfo ol");
@@ -152,6 +143,10 @@ function addProductToCartList(orderInfo){
     let liElement = temp.firstElementChild;
 
     cart.appendChild(liElement);
+
+            // TEMP for summing up price !!!!!!!!!
+    sumPrice += orderInfo[3];
+    document.querySelector("#sumPrice").innerHTML = sumPrice + " zł";
 
 }
 
