@@ -157,12 +157,19 @@ function addProductToCartList(orderInfo){
 const drag = document.querySelector(".floating-img");
 const dropZone = document.querySelector("#cartInfo");
 
+let timer = null; // timer for time when floating-img should comeback while its not moving
+
 let offset = {x: 0, y: 0};
 
 drag.addEventListener('touchstart', function(e) {
     const touch = e.touches[0]; // main touch point
     offset.x = touch.clientX - drag.offsetLeft;
     offset.y = touch.clientY - drag.offsetTop;
+
+    if(timer){
+        clearTimeout(timer);
+        timer = null;
+    }
 
 });
 
@@ -185,6 +192,7 @@ drag.addEventListener('touchend', function(e) {
     const dragRect = drag.getBoundingClientRect();
     const dropRect = dropZone.getBoundingClientRect();
 
+    // If here floating-img is in cart
     if (
         dragRect.left < dropRect.right &&
         dragRect.right > dropRect.left &&
@@ -207,7 +215,16 @@ drag.addEventListener('touchend', function(e) {
             addProductToCartList(orderInfo);
         }
 
+    }else{ // When touchend and floating-img is not in cart => come back to start position after 5s
+        timer = setTimeout(()=>{
+            setToStartPosition();
+            timer = null;
+
+        }, 5000); // 5s
+
     }
+
+    
 });
 
 // ----
@@ -251,7 +268,5 @@ function hideAlertDivBox(){
 }
 
 
-// TODO: -zeby floating-img nie mogl wyjechac poza viewport
-//       -jesli box po przesunieciu nie znajdzie sie w ciagu kilu minut w 
-//          koszyku to wraca na swoje miejsce
-
+// TODO:
+//       -funckja odpowiadajaca za obliczanie sumy koszyka

@@ -7,6 +7,11 @@
 
 }
 
+html, body{
+    overflow-x: hidden; /* When floating-img go out of the curve 
+                            site-with stay the same */
+}
+
 h2{
     font-size: 2rem;
 }
