@@ -83,7 +83,18 @@ function drop(event){
         let orderInfo = getOrderInfo(); // [productName, productPrice, quantity, totalPrice]
 
         addProductToCartList(orderInfo);
+        updateCartPrice(orderInfo[3]);
     }
+
+}
+
+
+// Sums up prices in cart
+let sumPrice = 0; // variable for sum price in cart
+
+function updateCartPrice(priceToAdd){
+    sumPrice += priceToAdd;
+    document.querySelector("#sumPrice").innerHTML = sumPrice + " zł";
 
 }
 
@@ -126,8 +137,8 @@ function validateOrderInfo(quantity){
 
 }
 
-            // TEMP variable!!!!! sumPrice
-let sumPrice = 0;
+
+
 // ------------
 // Adding prduct info to list in cart
 // ------------
@@ -144,9 +155,7 @@ function addProductToCartList(orderInfo){
 
     cart.appendChild(liElement);
 
-            // TEMP for summing up price !!!!!!!!!
-    sumPrice += orderInfo[3];
-    document.querySelector("#sumPrice").innerHTML = sumPrice + " zł";
+    
 
 }
 
@@ -267,6 +276,3 @@ function hideAlertDivBox(){
 
 }
 
-
-// TODO:
-//       -funckja odpowiadajaca za obliczanie sumy koszyka
