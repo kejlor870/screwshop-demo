@@ -84,16 +84,6 @@ nav{
 
 }
 
-/* section{
-    padding: 20px;
-    flex: 1 1 10%;
-    min-width: 300px;
-    text-align: center;
-    margin: 0 40px 0 40px;
-    border: 1px solid yellow;
-
-} */
-
 /* menu list */
 nav ul{
     display: flex;
@@ -110,7 +100,6 @@ nav ul{
 nav ul li a{
     color: #D5D8DC;
     text-decoration: none;
-    /* background-color: red; */
     display: inline-block;
     padding: 1rem;
     
@@ -142,7 +131,6 @@ nav > ul > li > ul{
     position: absolute;
     top: 100%;
     left: 0;
-    /* background-color: #00ff6a; */
     width: 100%;
     z-index: 1000;
     overflow: hidden;
@@ -195,8 +183,6 @@ main{
 
             /* PRODUCT SECTION */
 #productDisplay{
-    /* border: 1px solid black; */
-    /* width: 80%; */
     flex: 1 1 80%;
     padding: 10px;
     display: flex;
@@ -206,7 +192,6 @@ main{
 
 /* Left side with photos and description */
 #photosAndDescription{
-    /* background-color: rgba(189, 0, 189, 0.445); */
     flex: 1 1 70%;
     display: flex;
     flex-direction: column;
@@ -216,7 +201,6 @@ main{
 
 /* Div with images */
 #photoGallery{
-    /* background-color: red; */
     flex: 1 1 60%;
     display: flex;
     align-items: center;
@@ -236,8 +220,6 @@ main{
 
 /* Aside with smaller images */
 #photoGallery aside{
-    /* background-color: rgb(192, 114, 114); */
-    /* height: 100%;  ---------*/
     flex: 1 3 30%;
 
     display: flex;
@@ -268,7 +250,6 @@ main{
 
         /* Description */
 #description{
-    /* background-color: #F39C12; */
     flex: 1 1 30%;
     padding: 1rem 2rem 2rem 2rem;
 
@@ -278,8 +259,6 @@ main{
 
         /* Right side with suppy and add to cart btn */
 #addToCartSection{
-    /* background-color: darkolivegreen; */
-    /* border-left: 1px solid black; */
     border-right: 1px dashed black;
     flex: 1 1 30%;
     padding: 0 1rem 1rem 1rem;
@@ -289,12 +268,10 @@ main{
 }
 
 #addToCartSection h2{
-    /* background-color: #F39C12; */
     text-align: center;
     margin-bottom: 0;
 }
 #addToCartSection h3{
-    /* background-color: #975d00; */
     margin-top: 0;
     padding: 0;
     text-align: center;
@@ -303,7 +280,6 @@ main{
 }
 
 #storehouseStatus{
-    /* background-color: #222F3A; */
     border: 2px dotted rgb(83, 83, 83);
     padding: 0.5rem;
     display: flex;
@@ -320,7 +296,6 @@ main{
 /* Image that user is going to drop into cart */
 .floating-img{
     display: block;
-    /* background-color: red; */
     width: 60%;
     margin: 2rem auto 0 auto;
     border-bottom: 3px dotted burlywood;
@@ -331,7 +306,7 @@ main{
 /* Created for responsive containerForDragableImage sizes*/
 .invisible-img {
     position: relative;
-    width: 50%; /* tak samo jak floating */
+    width: 50%; /* the same like floating-img */
     height: auto;
     visibility: hidden;
     pointer-events: none;
@@ -339,7 +314,6 @@ main{
 }
 
 #quantitySection{
-    /* background-color: greenyellow; */
     margin-top: 3rem;
     border: 2px dotted rgb(83, 83, 83);
     padding: 0.5rem;
@@ -352,21 +326,18 @@ main{
 
 #addToCartSection i{
     display: inline-block;
-    /* background-color: yellow; */
     padding-top: 0.15rem;
     margin: 0 1rem 0 0.5rem;
 
 }
 
 #quantityInput{
-    /* width: 80%; */
     flex: 1 1 80%;
 
 }
 
 /* Information to contact when ordering more than 2000 */
 #informSpecialOrder{
-    /* background-color: yellow; */
     display: block;
     margin-top: auto;
     padding: 10px;
@@ -380,9 +351,7 @@ main{
 
             /* CART SECTION */
 #cartDisplay{
-    /* border: 1px solid black; */
     padding: 10px;
-    /* width: 20%; */
     flex: 1 1 20%;
     display: flex;
     flex-direction: column;
@@ -400,7 +369,6 @@ main{
 }
 
 #cartInfo{
-    /* height: 100%; */
     flex: 1 1 50%;
     min-height: 200px;
     max-height: 600px;
@@ -525,15 +493,7 @@ footer{
         gap: 0.1rem;
 
     }
-        #photoGallery > img{
-            /* height: 300px;  -----------*/ 
-            /* flex: 2 2 40%;
-            background-color: gray;
-            margin: 1rem;
-
-            min-width: 300px;
-            height: auto; */
-            
+        #photoGallery > img{   
             min-height: 300px;
             min-width: 300px;
 
@@ -541,31 +501,15 @@ footer{
 
 
         #photoGallery aside{
-            /* background-color: rgb(192, 114, 114);
-            height: 100%;
-            flex: 1 1 30%;
-
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center; */
             width: 90%;
             min-height: 100px;
             margin-top: 0.5rem;
 
         }
 
-        /* ChatGPT */
         #photoGallery aside img{
-            /* flex: auto;
-            width: 40%;
-            height: 200px;
-            display: inline-block;
-            background-color: #f0f0f0;
-            border: 1px dashed #999; */
-
             width: 20%;
             height: 100px;
-            /* max-height: 100px; */
 
         } 
 
@@ -589,11 +533,6 @@ footer{
     }
 
     #containerForDragableImage{
-        /* styl img */
-        /* display: block;
-        background-color: red;
-        width: 60%;
-        margin: 2rem auto 0 auto; */
         margin-top: 2rem;
         width: 100%;
         position: relative;
@@ -610,11 +549,6 @@ footer{
     }
 
     .invisible-img {
-        /* position: relative;
-        width: 50%; 
-        height: auto;
-        visibility: hidden;
-        pointer-events: none; */
         display: block;
     }
 

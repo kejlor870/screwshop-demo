@@ -61,8 +61,6 @@ function dragstart(event){
 
     let data = event.dataTransfer.getData("Sigma");
 
-    // alert(data);
-
 }
 
 function dragOvr(event){
