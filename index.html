@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PL-pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,15 +18,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Preload font -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/dmseriftext/v15/rP2Hp2yn6lkG60EvP9n9H-esZW2xOQ-xsNqO47m55DA.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- <link rel="preload" href="https://fonts.gstatic.com/s/dmseriftext/v15/rP2Hp2yn6lkG60EvP9n9H-esZW2xOQ-xsNqO47m55DA.woff2" as="font" type="font/woff2" crossorigin> -->
 
     <!-- JavaScript -->
     <script src="scripts.js" defer></script>
 
+    <!-- Get product info from PHP -->
+    <script src="ajax.js"></script>
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> 
     <script src="main-jquery.js"></script>
-
 </head>
 <body>
     <!-- Hint floating-img div -->
@@ -45,14 +47,14 @@
     <!-- Navigation MENU -->
     <nav>
         <ul>
-            <li><a href="#"> Strona główna </a></li>
+            <li><a href="index.html"> Strona główna </a></li>
             <li><a href="#"> Śrubki </a>
                 <ul>
-                    <li><a href="#"> Konstrukcyjne </a></li>
-                    <li><a href="#"> Maszynowe </a></li>
+                    <li><a href="#"> Konstrukcyjna </a></li>
+                    <li><a href="#"> Maszynowa </a></li>
                     <li><a href="#"> Do drewna </a></li>
                     <li><a href="#"> Do blachy </a></li>
-                    <li><a href="#"> Fundamentowe  </a></li>
+                    <li><a href="#"> Fundamentowa  </a></li>
                 </ul>
             </li>
             <li><a href="#"> Nakrętki </a>
@@ -77,14 +79,14 @@
             <section id="photosAndDescription">
                 <div id="photoGallery">
                     <!-- Main image -->
-                    <img src="images/products/sizesNoBG.png" alt="Główne zdjęcie produktu" id="mainImage">
+                    <img src="images/products/szesciokatna1.png" alt="Główne zdjęcie produktu" id="mainImage">
 
                     <!-- Thumbnails -->
                     <aside>
-                        <img src="images/products/sizesNoBG.png" alt="inne zdjecie produktu" draggable="false">
-                        <img src="images/products/many.png" alt="inne zdjecie produktu" draggable="false">
-                        <img src="images/products/stack.png" alt="inne zdjecie produktu" draggable="false">
-                        <img src="images/products/nakrecona.png" alt="inne zdjecie produktu" draggable="false">
+                        <img src="images/products/szesciokatna1.png" alt="inne zdjecie produktu" draggable="false" id="thumbnail1">
+                        <img src="images/products/szesciokatna2.png" alt="inne zdjecie produktu" draggable="false" id="thumbnail2">
+                        <img src="images/products/szesciokatna3.png" alt="inne zdjecie produktu" draggable="false" id="thumbnail3">
+                        <img src="images/products/szesciokatna4.png" alt="inne zdjecie produktu" draggable="false" id="thumbnail4">
                     </aside>
 
                 </div>
@@ -105,7 +107,7 @@
             <section id="addToCartSection">
                 <!-- Add to cart section -->
                 <h2 id="productName"> Śrubka sześciokątna </h2>
-                <h3> <span id="productPrice">2</span> zł/szt. </h3>
+                <h3> <span id="productPrice">2.00</span> zł/szt. </h3>
                 <div id="storehouseStatus"> 
                     Status magazynowy: 
                     <span id="storehouseAmount"> 1200 / 2000 </span>

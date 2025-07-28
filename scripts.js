@@ -1,5 +1,6 @@
 
 window.onload = function(){
+    
     // ----
     //  Main Image src changing for thumbnail after hover
     // ----
@@ -81,7 +82,7 @@ function drop(event){
         let orderInfo = getOrderInfo(); // [productName, productPrice, quantity, totalPrice]
 
         addProductToCartList(orderInfo);
-        updateCartPrice(orderInfo[3]);
+        updateCartPrice(orderInfo[3].toFixed(2));
     }
 
 }
@@ -91,8 +92,9 @@ function drop(event){
 let sumPrice = 0; // variable for sum price in cart
 
 function updateCartPrice(priceToAdd){
-    sumPrice += priceToAdd;
-    document.querySelector("#sumPrice").innerHTML = sumPrice + " zł";
+    sumPrice = sumPrice + parseFloat(priceToAdd);
+
+    document.querySelector("#sumPrice").innerHTML = sumPrice.toFixed(2) + " zł";
 
 }
 
@@ -100,9 +102,9 @@ function updateCartPrice(priceToAdd){
 function getOrderInfo(){
     const productName = document.getElementById("productName").innerHTML;
     const quantity = parseInt(document.getElementById("quantityInput").value);
-    const productPrice = parseInt(document.getElementById("productPrice").innerHTML);
+    const productPrice = parseFloat(document.getElementById("productPrice").innerHTML).toFixed(2);
 
-    // validation of entered data
+    // validation of entered data   
     let validateInfo = validateOrderInfo(quantity);
 
     if(validateInfo == true){ // information good -> return data to drop()
@@ -142,7 +144,7 @@ function validateOrderInfo(quantity){
 // ------------
 function addProductToCartList(orderInfo){
     // orderInfo => [productName, productPrice, quantity, totalPrice]
-    let liHTML = '<li class="productInCart"><div> <b> '+orderInfo[0]+' </b> x'+orderInfo[2]+' <span class="priceInCart"> '+orderInfo[3]+' zł</span> </div></li>';
+    let liHTML = '<li class="productInCart"><div> <b> '+orderInfo[0]+' </b> x'+orderInfo[2]+' <span class="priceInCart"> '+orderInfo[3].toFixed(2)+' zł</span> </div></li>';
 
     let cart = document.querySelector("#cartInfo ol");
 
