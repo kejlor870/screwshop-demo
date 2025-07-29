@@ -44,7 +44,7 @@ C:\xampp\htdocs\screwshop-demo
 ### 3. Import the database:
 - Open phpMyAdmin
 - Create a new database (e.g., warehouse_nuts)
-- Import the SQL file located in the project (e.g., database.sql) via the Import tab in phpMyAdmin
+- Import the SQL file located in the project (e.g., warehouse_nuts.sql) via the Import tab in phpMyAdmin
 
 ### 4. Configure database connection:
 - Edit the PHP file(s) responsible for database connection (e.g., getProductInfo.php) and update the database name, username, and password accordingly.
