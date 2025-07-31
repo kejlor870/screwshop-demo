@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 29 Lip 2025, 21:44
+-- Czas generowania: 31 Lip 2025, 21:44
 -- Wersja serwera: 10.4.22-MariaDB
 -- Wersja PHP: 8.0.13
 
@@ -107,7 +107,23 @@ INSERT INTO `product_images` (`id`, `product_id`, `filename`) VALUES
 (35, 2, 'maszynowa1.png'),
 (36, 2, 'maszynowa2.png'),
 (37, 2, 'maszynowa3.png'),
-(38, 2, 'maszynowa4.png');
+(38, 2, 'maszynowa4.png'),
+(39, 10, 'motylkowa1.png'),
+(40, 10, 'motylkowa2.png'),
+(41, 10, 'motylkowa3.png'),
+(42, 10, 'motylkowa4.png'),
+(43, 11, 'czworokatna1.png'),
+(44, 11, 'czworokatna2.png'),
+(45, 11, 'czworokatna3.png'),
+(46, 11, 'czworokatna4.png'),
+(47, 13, 'stozkowa1.png'),
+(48, 13, 'stozkowa2.png'),
+(49, 13, 'stozkowa3.png'),
+(50, 13, 'stozkowa4.png'),
+(51, 12, 'radelkowana1.png'),
+(52, 12, 'radelkowana2.png'),
+(53, 12, 'radelkowana3.png'),
+(54, 12, 'radelkowana4.png');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -140,7 +156,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT dla tabeli `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- Ograniczenia dla zrzutów tabel
