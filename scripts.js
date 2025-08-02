@@ -142,21 +142,58 @@ function validateOrderInfo(quantity){
 // ------------
 // Adding prduct info to list in cart
 // ------------
-function addProductToCartList(orderInfo){
+// function addProductToCartList(orderInfo){
+//     // orderInfo => [productName, productPrice, quantity, totalPrice]
+//     let liHTML = '<li class="productInCart"><div> <b> '+orderInfo[0]+' </b> x'+orderInfo[2]+' <span class="priceInCart"> '+orderInfo[3].toFixed(2)+' zł</span> </div></li>';
+
+//     let cart = document.querySelector("#cartInfo ol");
+
+//     let temp = document.createElement('div');
+//     temp.innerHTML = liHTML;
+
+//     let liElement = temp.firstElementChild;
+
+//     cart.appendChild(liElement);
+
+    
+
+// }
+function addProductToCartList(orderInfo) {
     // orderInfo => [productName, productPrice, quantity, totalPrice]
-    let liHTML = '<li class="productInCart"><div> <b> '+orderInfo[0]+' </b> x'+orderInfo[2]+' <span class="priceInCart"> '+orderInfo[3].toFixed(2)+' zł</span> </div></li>';
+    const productName = orderInfo[0].trim();
+    const quantityToAdd = parseInt(orderInfo[2]);
+    const priceToAdd = parseFloat(orderInfo[3]);
 
     let cart = document.querySelector("#cartInfo ol");
+    let existingItems = cart.querySelectorAll(".productInCart");
+
+    for (let item of existingItems) {
+        let nameElement = item.querySelector('b');
+        let quantityMatch = item.innerText.match(/x(\d+)/);
+        let priceElement = item.querySelector('.priceInCart');
+
+        if (nameElement && nameElement.textContent.trim() === productName && quantityMatch && priceElement) {
+            // if product is in cart, the price and quantity is updating
+            let currentQuantity = parseInt(quantityMatch[1]);
+            let newQuantity = currentQuantity + quantityToAdd;
+
+            let currentPrice = parseFloat(priceElement.textContent.replace('zł', '').replace(',', '.'));
+            let newPrice = currentPrice + priceToAdd;
+
+            item.innerHTML = `<div> <b> ${productName} </b> x${newQuantity} <span class="priceInCart"> ${newPrice.toFixed(2)} zł</span> </div>`;
+            
+            return; 
+        }
+    }
+
+    // if product isn't added before
+    let liHTML = `<li class="productInCart"><div> <b> ${productName} </b> x${quantityToAdd} <span class="priceInCart"> ${priceToAdd.toFixed(2)} zł</span> </div></li>`;
 
     let temp = document.createElement('div');
     temp.innerHTML = liHTML;
 
     let liElement = temp.firstElementChild;
-
     cart.appendChild(liElement);
-
-    
-
 }
 
 
