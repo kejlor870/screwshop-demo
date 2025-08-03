@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Adding click function to all menu anchors
     for(let i=0; i<allLi.length; i++){
         allLi[i].addEventListener('click', function(e){
+            e.preventDefault();
             // this.textContent <- Text from menu 
             downloadXML(this.textContent);
 
@@ -103,7 +104,7 @@ function showInfo(menuName){
                 // Updating thumbnails src
                 const thumbnails = document.querySelectorAll("#photoGallery aside img");
                 for(let i=0; i<thumbnails.length; i++){
-                    thumbnails[i].src = "images/products/"+xmlImgsList[i];
+                    thumbnails[i].src = "images/products/" + (xmlImgsList[i] || "placeholder.jpg");
                 }
 
                 // ------------
