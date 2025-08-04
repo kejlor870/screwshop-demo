@@ -3,6 +3,7 @@ var XMLMainElement = null;
 document.addEventListener('DOMContentLoaded', function () {
     // Choosing all links to products
     const allLi = document.querySelectorAll('nav li ul li a');
+    const allBtnCheckProduct = document.querySelectorAll(".btnCheckProduct");
 
     // Adding click function to all menu anchors
     for(let i=0; i<allLi.length; i++){
@@ -12,7 +13,16 @@ document.addEventListener('DOMContentLoaded', function () {
             downloadXML(this.textContent);
 
         });
+    }
 
+    // Adding click function to all btnCheckProduct
+    for(let i=0; i<allBtnCheckProduct.length; i++){
+        allBtnCheckProduct[i].addEventListener('click', function(e){
+            e.preventDefault();
+
+            console.log(e.target.value); // value from button
+
+        });
     }
 
 });
@@ -58,7 +68,7 @@ function downloadXML(productName){
                     showInfo(productName);
 
                 }else{
-                    alert("wystapil blad: " + XHR.status);
+                    alert("wystapil blad: " + XHR.status + "\nSprawdź połączenie z internetem!");
                 }
 
             }
@@ -94,10 +104,9 @@ function showInfo(menuName){
                     xmlImgsList.push(imgs.firstChild.nodeValue);
                 });
 
-                // ------------
-                // Image change section
-                // ------------
-                
+                        // ------------
+                        // Image change section
+                        // ------------
                 // Updating mainImage src
                 document.getElementById("mainImage").src = "images/products/"+xmlImgsList[0];
 
@@ -126,6 +135,11 @@ function showInfo(menuName){
                 // storehouseAmount change section
                 // ------------
                 document.getElementById("storehouseAmount").innerHTML = xmlQuantity+" / 2000 ";
+
+                // ------------
+                // Hide indexPage with all products and show main page with the product info page
+                document.getElementById("indexPage").style.display = "none";
+                document.querySelector("main").style.display = "flex";
 
                 break;
             }

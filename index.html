@@ -73,20 +73,47 @@
         </ul>
 
     </nav>
-    <main>
+
+    <div id="indexPage" >
+        <!-- Dynamic load products using AJAX  -->
+        <div class="productCard">
+            <img src="images/products/czworokatna1.png" alt="Śrubka czworokątna">
+            <h2 class="productNameCard"> Nakrętka <br> Czworokątna </h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, doloremque facilis nesciunt voluptatum corporis enim. Impedit deleniti harum in aliquam natus aspernatur architecto eligendi, dolore aut quia distinctio ea possimus.</p>
+            
+            <div class="priceAndBtn">
+                <p class="priceProduct">Cena: <span>2.50 zł</span></p>
+                <button type="button" class="btnCheckProduct" value="czworokatna">Zobacz</button>
+            </div>
+        </div>
+
+        <div class="productCard">
+            <img src="images/products/doblachy3.png" alt="Śrubka czworokątna">
+            <h2 class="productNameCard"> Śrubka <br> Do blachy </h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, doloremque facilis nesciunt voluptatum corporis enim. Impedit deleniti harum in aliquam natus aspernatur architecto eligendi, dolore aut quia distinctio ea possimus.</p>
+            
+            <div class="priceAndBtn">
+                <p class="priceProduct">Cena: <span>2.50 zł</span></p>
+                <button type="button" class="btnCheckProduct" value="doblachy">Zobacz</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <main style="display: none;">
         <section id="productDisplay">
             <!-- Left side with photos and description -->
             <section id="photosAndDescription">
                 <div id="photoGallery">
                     <!-- Main image -->
-                    <img src="images/products/szesciokatna1.png" alt="Główne zdjęcie produktu" id="mainImage">
+                    <img src="images/products/placeholder.jpg" alt="Główne zdjęcie produktu" id="mainImage">
 
                     <!-- Thumbnails -->
                     <aside>
-                        <img src="images/products/szesciokatna1.png" alt="inne zdjecie produktu" draggable="false" id="thumbnail1">
-                        <img src="images/products/szesciokatna2.png" alt="inne zdjecie produktu" draggable="false" id="thumbnail2">
-                        <img src="images/products/szesciokatna3.png" alt="inne zdjecie produktu" draggable="false" id="thumbnail3">
-                        <img src="images/products/szesciokatna4.png" alt="inne zdjecie produktu" draggable="false" id="thumbnail4">
+                        <img src="images/products/placeholder.jpg" alt="inne zdjecie produktu" draggable="false" id="thumbnail1">
+                        <img src="images/products/placeholder.jpg" alt="inne zdjecie produktu" draggable="false" id="thumbnail2">
+                        <img src="images/products/placeholder.jpg" alt="inne zdjecie produktu" draggable="false" id="thumbnail3">
+                        <img src="images/products/placeholder.jpg" alt="inne zdjecie produktu" draggable="false" id="thumbnail4">
                     </aside>
 
                 </div>

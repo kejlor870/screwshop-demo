@@ -171,6 +171,105 @@ nav > ul > li:hover > ul {
     
 } 
 
+        /* Index Page with products cards */
+
+#indexPage{
+    background-color: #ECF0F1;
+    padding: 1rem;
+    /* min-height: 1000px;  */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+
+}
+
+/* Product card */
+.productCard{
+    background-color: #2C3E50;
+    max-width: 300px;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    color: #ECF0F1;
+
+}
+
+.productCard img{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border: 1px dashed #999;
+
+}
+
+.productNameCard{
+    margin: 0.5rem 0 0 0;
+    padding: 0;
+    word-break: break-word;
+    text-align: center;
+
+}
+
+#indexPage p{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+
+}
+
+.priceProduct{
+    font-weight: bold;
+    margin: 0;
+}
+
+.priceProduct span{
+    font-size: 1.5rem;
+
+}
+
+#indexPage .priceAndBtn{
+    margin: 0;
+    margin-top: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+/* ---------------------------------------------------------- change place */
+@media (max-width: 480px) {
+    .priceAndBtn {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .priceAndBtn button {
+        width: 100%;
+    }
+}
+/* ---------------------------------------------------------- change place */
+
+.btnCheckProduct{
+    padding: 8px 16px;
+    background-color: #1A252F;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+}
+.btnCheckProduct:hover{
+    background-color: #1C1C1C;
+    box-shadow: 2px 2px 2px 0px rgba(26, 37, 47, 1);
+    
+}
+
+
             /* MAIN */
 main{
     background-color: #ECF0F1;
