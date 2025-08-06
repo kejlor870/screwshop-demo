@@ -1,9 +1,12 @@
 var XMLMainElement = null;
+var XMLAllProductsElement = null;
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Load all products cards to indexPage
+    loadAllProductsXML(); 
+
     // Choosing all links to products
     const allLi = document.querySelectorAll('nav li ul li a');
-    const allBtnCheckProduct = document.querySelectorAll(".btnCheckProduct");
 
     // Adding click function to all menu anchors
     for(let i=0; i<allLi.length; i++){
@@ -11,16 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             // this.textContent <- Text from menu 
             downloadXML(this.textContent);
-
-        });
-    }
-
-    // Adding click function to all btnCheckProduct
-    for(let i=0; i<allBtnCheckProduct.length; i++){
-        allBtnCheckProduct[i].addEventListener('click', function(e){
-            e.preventDefault();
-
-            console.log(e.target.value); // value from button
 
         });
     }
@@ -49,7 +42,7 @@ function ajaxInit(){
     return XHR;
 }
 
-// XML download data
+// XML download data of the product
 function downloadXML(productName){
     productName = productName.trim();
     var XHR = ajaxInit();
@@ -150,3 +143,85 @@ function showInfo(menuName){
 
 }
 
+// ------------------------------------------------------------------------
+//                  All products generate cards
+// ------------------------------------------------------------------------
+
+// Download XML of all products
+function loadAllProductsXML(){
+    var XHR = ajaxInit();
+    
+    if(XHR != null){
+        XHR.open("GET", "./allProducts.php", true);
+        
+        XHR.onreadystatechange = function(){
+            if(XHR.readyState == 4){
+                if(XHR.status == 200){
+                    XMLAllProductsElement = XHR.responseXML.documentElement;
+
+                    // Show info from XML
+                    generateAllProductsCards();
+
+                }else{
+                    alert("wystapil blad: " + XHR.status + "\nSprawdź połączenie z internetem!");
+                }
+
+            }
+
+        }
+
+        XHR.send(null);
+    }
+
+}
+
+// Generate products cards in indexPage
+function generateAllProductsCards(){
+    if(XMLAllProductsElement != null){
+        // Place where cards gonna be displayed
+        const indexPage = document.getElementById("indexPage");
+        // Get all product from XML
+        let productsList = XMLAllProductsElement.getElementsByTagName('Product');
+
+        for(let i=0; i<productsList.length; i++){
+            let productName = productsList[i].getElementsByTagName('Name')[0].firstChild.nodeValue;
+            let productType = productsList[i].getElementsByTagName('Type')[0].firstChild.nodeValue;
+            let productPrice = productsList[i].getElementsByTagName('Price')[0].firstChild.nodeValue;
+            let productDescription = productsList[i].getElementsByTagName('Description')[0].firstChild.nodeValue;
+            let productIMG = productsList[i].getElementsByTagName('Filename')[0].firstChild.nodeValue;
+
+            // Create div for card
+            const card = document.createElement("div");
+            card.className = "productCard";
+
+            card.innerHTML = `
+                <img src="images/products/`+productIMG+`" alt="`+productName+`">
+                <h2 class="productNameCard"> `+productType+` </h2>
+                <p>`+productDescription+`</p>
+
+                <div class="priceAndBtn">
+                    <p class="priceProduct">Cena: <span>`+productPrice+` zł</span></p>
+                    <button type="button" class="btnCheckProduct" value="`+productType+`">Zobacz</button>
+                </div>
+            `;
+
+            // Add product card to indexPage - div
+            indexPage.appendChild(card);
+        }
+
+        addOnClickToBtnCheckProduct();
+    }
+}
+
+// Adding click function to all btnCheckProduct
+function addOnClickToBtnCheckProduct(){
+    const allBtnCheckProduct = document.querySelectorAll(".btnCheckProduct");
+
+    for(let i=0; i<allBtnCheckProduct.length; i++){
+        allBtnCheckProduct[i].addEventListener('click', function(e){
+            e.preventDefault();
+
+            console.log(e.target.value); // value from button
+        });
+    }
+}
