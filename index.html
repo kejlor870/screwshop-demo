@@ -151,18 +151,18 @@
             <div id="cartInfo" ondragover="dragOvr(event)" ondrop="drop(event)" >
                 <!-- Added products displays here -->
                 <ol>
-                    <!-- 
-                    <li class="productInCart"><div> <b> Śrubka sześciokątna </b> x23 <span class="priceInCart"> 46 zł</span> </div></li>
-                    <li class="productInCart"><div> <b> Śrubka sześciokątna </b> x23 <span class="priceInCart"> 46 zł</span> </div></li>
-                    <li class="productInCart"><div> <b> Śrubka sześciokątna </b> x23 <span class="priceInCart"> 46 zł</span> </div></li>
-                     -->
+                    
+                    <!-- <li class="productInCart"><div> <b> Śrubka sześciokątna </b> x23 <span class="priceInCart"> 46 zł</span> <button type="button" class="btnRemove" onclick="removeProduct(event)">x</button> </div></li>
+                    <li class="productInCart"><div> <b> Śrubka sześciokątna </b> x23 <span class="priceInCart"> 46.30 zł</span> <button type="button" class="btnRemove" onclick="removeProduct(event)">x</button> </div></li>
+                    <li class="productInCart"><div> <b> Śrubka sześciokątna </b> x23 <span class="priceInCart"> 46 zł</span> <button type="button" class="btnRemove" onclick="removeProduct(event)">x</button> </div></li> -->
+                    
                 </ol>
             </div>
             <div id="priceSumSection">
                 <h2>Razem: </h2>
                 <span id="sumPrice">0.00 zł</span>
             </div>
-            <button type="button"> Kup teraz </button>
+            <button type="button" id="btnBuyNow"> Kup teraz </button>
         </section>
     </main>
     <footer>

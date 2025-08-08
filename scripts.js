@@ -40,7 +40,7 @@ window.onload = function(){
 // Function changing src cardbord
 function ChangeCartboardImage(){
     const width = window.innerWidth;
-    if(width <= 975){
+    if(width <= 1285){
         document.querySelector('.floating-img').src = "images/packedArrowDown.PNG";
 
     }else{
@@ -180,14 +180,14 @@ function addProductToCartList(orderInfo) {
             let currentPrice = parseFloat(priceElement.textContent.replace('zł', '').replace(',', '.'));
             let newPrice = currentPrice + priceToAdd;
 
-            item.innerHTML = `<div> <b> ${productName} </b> x${newQuantity} <span class="priceInCart"> ${newPrice.toFixed(2)} zł</span> </div>`;
+            item.innerHTML = `<div> <b> ${productName} </b> x${newQuantity} <span class="priceInCart"> ${newPrice.toFixed(2)} zł</span> <button type="button" class="btnRemove" onclick="removeProduct(event)">x</button> </div>`;
             
             return; 
         }
     }
 
     // if product isn't added before
-    let liHTML = `<li class="productInCart"><div> <b> ${productName} </b> x${quantityToAdd} <span class="priceInCart"> ${priceToAdd.toFixed(2)} zł</span> </div></li>`;
+    let liHTML = `<li class="productInCart"><div> <b> ${productName} </b> x${quantityToAdd} <span class="priceInCart"> ${priceToAdd.toFixed(2)} zł</span> <button type="button" class="btnRemove" onclick="removeProduct(event)">x</button> </div></li>`;
 
     let temp = document.createElement('div');
     temp.innerHTML = liHTML;
@@ -259,6 +259,7 @@ drag.addEventListener('touchend', function(e) {
 
             let orderInfo = getOrderInfo();
             addProductToCartList(orderInfo);
+            updateCartPrice(orderInfo[3].toFixed(2));
         }
 
     }else{ // When touchend and floating-img is not in cart => come back to start position after 5s
@@ -312,4 +313,23 @@ function hideAlertDivBox(){
     alertDivbox.style.display = "none";
 
 }
+
+// -----------
+// Remove product from list Function
+// -----------
+function removeProduct(e){
+    let productPriceInCart = e.target.parentElement.querySelector('.priceInCart').textContent;
+    let onlyPrice = parseFloat(productPriceInCart).toFixed(2);
+
+    // Subtracts product price from total cart price
+    updateCartPrice(-onlyPrice);
+
+    // Deleteing li DOM 
+    e.target.parentElement.parentElement.remove(); // button (e) -> div -> li (remove)
+}
+
+
+
+
+
 

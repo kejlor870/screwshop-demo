@@ -503,8 +503,29 @@ main{
 }
 
 .priceInCart{
-    margin-left: 1rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
 } 
+
+.btnRemove{
+    font-size: 0.9rem;
+    line-height: 0.3rem;
+    max-width: 30px;
+    max-height: 30px;
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 5px;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: 0.5px dashed #a9abad;
+    background-color: #ECF0F1;
+
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+
+}
 
 #priceSumSection{
     display: flex;
@@ -525,18 +546,18 @@ main{
 
 }
 
-#cartDisplay button{
+#btnBuyNow{
     background-color: #F39C12;
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 0.3rem;
     color: #FFFFFF;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    /* text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; */
     letter-spacing: 0.2rem;
 
 }
 
-#cartDisplay button:hover{
+#btnBuyNow:hover{
     background-color: rgb(252, 169, 35);
 
 }
